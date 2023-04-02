@@ -95,13 +95,17 @@ class _HomePageState extends State<HomePage> {
                   onDoubleTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                      return DetailsPage(rates: exchangeRate,);
+                      return DetailsPage(
+                        rates: exchangeRate,
+                      );
                     }));
                   },
                 ),
                 _currentPriceWidget(usdPrice),
                 _percentageChangeWidget(change24h),
-                _descriptionWidget(data["description"]["en"]),
+                SingleChildScrollView(
+                  child: _descriptionWidget(data["description"]["en"]),
+                ),
               ],
             );
           } else {
